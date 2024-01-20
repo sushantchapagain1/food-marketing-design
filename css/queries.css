@@ -1,0 +1,254 @@
+/* Inside media queies we cannot change default 1rem = 1em =16px
+but still can use the trick html{
+  font-size:small in desktop first and vice versa in mobile 1st
+*/
+/* there is bug in some browsers: while using media queries we
+canot use rem we have to use em which is same 16px.
+*/
+
+/*****************************/
+/* BELOW 1344px (Smallar desktop) */
+/*****************************/
+
+/* max 1344 samma yo query ko css lig bhanya ho */
+@media (max-width: 84em) {
+  .hero-wrapper {
+    max-width: 120rem;
+  }
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-wrapper {
+    column-gap: 9.2rem;
+  }
+}
+
+/*****************************/
+/* BELOW 1200px (Landscape Tablets) */
+/*****************************/
+
+@media (max-width: 75em) {
+  /* decreasing by 1 px 9 /16 = 56.25%  */
+  html {
+    font-size: 52.65%;
+  }
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 3.2rem;
+  }
+  .header {
+    padding: 0 3.2rem;
+  }
+  .hero-wrapper {
+    column-gap: 4.8rem;
+  }
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+  .testimonial-container {
+    padding: 9.6rem 3.2rem;
+  }
+}
+
+/*****************************/
+/* BELOW 920px (Tablets) */
+/*****************************/
+
+@media (max-width: 58em) {
+  /* 8px *16 = 0.5 =50% */
+  html {
+    font-size: 50%;
+  }
+  .hero-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 6.4rem;
+    padding: 0 8rem;
+  }
+  .hero-img {
+    width: 60%;
+  }
+  .hero-text-wrapper,
+  .hero-img-wrapper {
+    text-align: center;
+  }
+  .hero-btns,
+  .delivered-meals {
+    justify-content: center;
+  }
+
+  .delivered-meals {
+    margin-top: 3.2rem;
+  }
+  .logos img {
+    height: 2.4rem;
+  }
+  .step-number {
+    font-size: 7.4rem;
+  }
+  .meal-content {
+    padding: 2.4rem 3.2rem 3.2rem 3.2rem;
+  }
+  .testimonial-section {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .cta {
+    grid-template-columns: 3fr 2fr;
+  }
+  .cta-form {
+    grid-template-columns: 1fr;
+    row-gap: 2.4rem;
+  }
+  .menu-icon-mobile {
+    display: block;
+    z-index: 9999;
+  }
+  .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.97);
+    height: 100vh;
+    width: 100%;
+    transform: translateX(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* ease in fast at first */
+    transition: all 0.5s ease-in;
+
+    /* display none we cannot animate */
+    /* doesnot remove element so we cannot touch background when removed*/
+    opacity: 0;
+    /* Make it unaccessible on mouse keyboard  */
+    pointer-events: none;
+    /* Hide from Screen */
+    visibility: hidden;
+  }
+  .open-nav .nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .open-nav ion-icon[name='close-outline'] {
+    display: block;
+  }
+  .open-nav ion-icon[name='menu-outline'] {
+    display: none;
+  }
+  .main-nav-list {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  .main-nav-links:link,
+  .main-nav-links:visited {
+    font-size: 3rem;
+  }
+}
+/* BELOW 864px Tablets */
+@media (max-width: 54em) {
+  /* 7.5px *16 = 0.5 =50% */
+  html {
+    font-size: 47%;
+  }
+}
+
+/*****************************/
+/* BELOW 726px (Smaller Tablets) */
+/*****************************/
+@media (max-width: 46em) {
+  .pricing {
+    width: 100%;
+  }
+  .grid-3-col,
+  .grid-4-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .heading-secondary {
+    margin-bottom: 4.8rem;
+  }
+  .diets {
+    justify-self: center;
+    grid-column: 1/-1;
+  }
+  .grid-5-col-footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .nav-col {
+    grid-row: 1;
+    /* take the grid column with 2 span */
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+  .address-col,
+  .logo-col {
+    grid-column: span 3;
+  }
+}
+
+/*****************************/
+/* BELOW 576px (Phones) */
+/*****************************/
+@media (max-width: 36em) {
+  .hero {
+    padding: 2.4rem 0 4.8rem 0;
+  }
+  .hero-wrapper {
+    padding: 0 3.2rem;
+  }
+  .hero-img {
+    width: 80%;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 1.6rem 1.2rem;
+  }
+  .logos img {
+    height: 1.2rem;
+  }
+  .grid-2-col,
+  .grid-3-col,
+  .grid-4-col {
+    grid-template-columns: 1fr;
+  }
+  .step-img {
+    grid-row: 1;
+    transform: translateY(2.4rem);
+  }
+  .customer-testimonial {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+  .cta {
+    grid-template-columns: 1fr;
+  }
+  .cta-img-box {
+    grid-row: 1;
+    height: 32rem;
+  }
+}
+
+/*  FONT SIZE / TYPOGRAPHY  SYSTEM (px)
+      10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+  SPACING SYSTEM (px)
+      2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+ */
